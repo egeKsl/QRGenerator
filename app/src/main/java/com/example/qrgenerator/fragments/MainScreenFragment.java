@@ -3,6 +3,7 @@ package com.example.qrgenerator.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,13 @@ public class MainScreenFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentMainScreenBinding.inflate(inflater, container, false);
 
+
+        binding.buttonScanMainScreenFragment.setOnClickListener(view ->{
+            Navigation.findNavController(view).navigate(R.id.action_mainScreenFragment_to_scanFragment);
+        });
+        binding.buttonQRCreateMainScreenFragment.setOnClickListener(view ->{
+            Navigation.findNavController(view).navigate(R.id.action_mainScreenFragment_to_createFragment);
+        });
 
 
         return binding.getRoot();
