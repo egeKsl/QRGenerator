@@ -27,6 +27,12 @@ public class MainScreenFragment extends Fragment {
         binding.buttonQRCreateMainScreenFragment.setOnClickListener(view ->{
             Navigation.findNavController(view).navigate(R.id.action_mainScreenFragment_to_createFragment);
         });
+        binding.buttonOldScansMainScreenFragment.setOnClickListener(view ->{
+            Navigation.findNavController(view).navigate(R.id.action_mainScreenFragment_to_oldScanFragment);
+        });
+        binding.buttonOldQRMainScreenFragment.setOnClickListener(view ->{
+            Navigation.findNavController(view).navigate(R.id.action_mainScreenFragment_to_oldQRFragment);
+        });
 
 
         return binding.getRoot();
