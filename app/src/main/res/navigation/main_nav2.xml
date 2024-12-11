@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_scanFragment_to_mainScreenFragment"
             app:destination="@id/mainScreenFragment" />
+        <action
+            android:id="@+id/action_scanFragment_to_scanResultFragment"
+            app:destination="@id/scanResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/oldScanFragment"
@@ -70,5 +73,14 @@
         <action
             android:id="@+id/action_generatedQrScreen_to_createFragment"
             app:destination="@id/createFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanResultFragment"
+        android:name="com.example.qrgenerator.fragments.ScanResultFragment"
+        android:label="fragment_scan_result"
+        tools:layout="@layout/fragment_scan_result" >
+        <action
+            android:id="@+id/action_scanResultFragment_to_scanFragment"
+            app:destination="@id/scanFragment" />
     </fragment>
 </navigation>

@@ -7,6 +7,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,9 +50,18 @@ public class ScanFragment extends Fragment {
                         if(intentResult.getContents() == null){
                             Toast.makeText(requireContext(),"Scan Cancelled",Toast.LENGTH_LONG).show();
                         }else{
-                            Toast.makeText(requireContext(),
+                            /*Toast.makeText(requireContext(),
                                     "Content: " + intentResult.getContents() + "\nFormat: " + intentResult.getFormatName(),
-                                    Toast.LENGTH_LONG).show();
+                                    Toast.LENGTH_LONG).show();*/
+                            Bundle bundle = new Bundle();
+                            String qrResult = intentResult.getContents();
+                            bundle.putString("qrResult",qrResult);
+
+                            ScanResultFragment scanResultFragment = new ScanResultFragment();
+                            scanResultFragment.setArguments(bundle);
+
+                            Navigation.findNavController(binding.getRoot())
+                                            .navigate(R.id.action_scanFragment_to_scanResultFragment,bundle);
                         }
                     }
                 }

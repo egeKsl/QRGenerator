@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.ScanResultFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarScanResultFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:background="@color/light_blue"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <!-- Toolbar Title -->
+    <TextView
+        android:id="@+id/toolbar_title4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="QR Generator"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbarScanResultFragment" />
+
+    <TextView
+        android:id="@+id/textViewResultScanResultFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="55dp"
+        android:hint="Qr Results"
+        android:background="@drawable/textview_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarScanResultFragment" />
+
+    <Button
+        android:id="@+id/buttonCopyScanResultFragment"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/mainscreenbutton"
+        android:text="Copy"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOpenLinkScanResultFragment"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultScanResultFragment" />
+
+    <Button
+        android:id="@+id/buttonOpenLinkScanResultFragment"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/mainscreenbutton"
+        android:text="Open"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonCopyScanResultFragment"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultScanResultFragment" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
