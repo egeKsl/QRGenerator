@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.qrgenerator.R;
 import com.example.qrgenerator.databinding.FragmentCreateBinding;
@@ -22,7 +23,16 @@ public class CreateFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentCreateBinding.inflate(inflater, container, false);
 
+        binding.buttonGenerateCreateFragment.setOnClickListener(view ->{
+            //I have to check if editext is empty
+            String givenText = binding.inputEditTextCreateFragment.getText().toString();
+            if(givenText == ""){
+                Toast.makeText(getContext(),"I gotta input text", Toast.LENGTH_SHORT).show();
+            }else{
+                generateQRCode(givenText);
+            }
 
+        });
 
         return binding.getRoot();
     }
