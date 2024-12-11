@@ -27,20 +27,48 @@
         android:id="@+id/createFragment"
         android:name="com.example.qrgenerator.fragments.CreateFragment"
         android:label="fragment_create"
-        tools:layout="@layout/fragment_create" />
+        tools:layout="@layout/fragment_create" >
+        <action
+            android:id="@+id/action_createFragment_to_generatedQrScreen"
+            app:destination="@id/generatedQrScreen" />
+        <action
+            android:id="@+id/action_createFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/scanFragment"
         android:name="com.example.qrgenerator.fragments.ScanFragment"
         android:label="fragment_scan"
-        tools:layout="@layout/fragment_scan" />
+        tools:layout="@layout/fragment_scan" >
+        <action
+            android:id="@+id/action_scanFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/oldScanFragment"
         android:name="com.example.qrgenerator.fragments.OldScanFragment"
         android:label="fragment_old_scan"
-        tools:layout="@layout/fragment_old_scan" />
+        tools:layout="@layout/fragment_old_scan" >
+        <action
+            android:id="@+id/action_oldScanFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
     <fragment
         android:id="@+id/oldQRFragment"
         android:name="com.example.qrgenerator.fragments.OldQRFragment"
         android:label="fragment_old_q_r"
-        tools:layout="@layout/fragment_old_q_r" />
+        tools:layout="@layout/fragment_old_q_r" >
+        <action
+            android:id="@+id/action_oldQRFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generatedQrScreen"
+        android:name="com.example.qrgenerator.fragments.GeneratedQrScreen"
+        android:label="fragment_generated_qr_screen"
+        tools:layout="@layout/fragment_generated_qr_screen" >
+        <action
+            android:id="@+id/action_generatedQrScreen_to_createFragment"
+            app:destination="@id/createFragment" />
+    </fragment>
 </navigation>
