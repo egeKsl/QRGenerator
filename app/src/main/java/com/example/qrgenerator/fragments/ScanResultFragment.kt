@@ -11,7 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.qrgenerator.R
 import com.example.qrgenerator.databinding.FragmentScanResultBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -26,6 +29,14 @@ class ScanResultFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentScanResultBinding.inflate(inflater, container, false)
+
+        // Geri tuşu için callback ekle
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Navigation ile bir önceki ekrana geçiş
+                findNavController().navigate(R.id.action_scanResultFragment_to_mainScreenFragment)
+            }
+        })
 
         // Gelen veriyi arguments ile al
         arguments?.let {
@@ -86,6 +97,3 @@ class ScanResultFragment : Fragment() {
         _binding = null
     }
 }
-
-
-

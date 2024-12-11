@@ -82,5 +82,8 @@
         <action
             android:id="@+id/action_scanResultFragment_to_scanFragment"
             app:destination="@id/scanFragment" />
+        <action
+            android:id="@+id/action_scanResultFragment_to_mainScreenFragment"
+            app:destination="@id/mainScreenFragment" />
     </fragment>
 </navigation>
